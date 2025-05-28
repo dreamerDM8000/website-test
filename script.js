@@ -1,16 +1,8 @@
 // ----- KONSTANTEN -----
 const DEFAULT_GROUPS = ["Favoriten", "Soziale Netzwerke", "Tools"];
 const defaultSites = [
-  { name: "GitHub", url: "https://github.com", group: "Favoriten" },
-  { name: "MCPEDL", url: "https://mcpe-dl.com", group: "Favoriten" },
-  { name: "Chunkbase", url: "https://chunkbase.com", group: "Favoriten" },
-  { name: "Twitch", url: "https://twitch.tv", group: "Soziale Netzwerke" },
-  { name: "Lyricsify", url: "https://lyricsify.com", group: "Tools" },
-  { name: "Yo-net", url: "https://yo-net-watch.com", group: "Favoriten" },
-  { name: "FortniteDB", url: "https://fortnitedb.com", group: "Favoriten" },
-  { name: "Eaglercraft", url: "https://eaglercraft.com", group: "Favoriten" },
-  { name: "Start.me", url: "https://start.me", group: "Tools" },
-  { name: "JSON Online", url: "https://jsononline.net", group: "Tools" },
+  { name: "Google", url: "https://google.com", group: "" },
+  { name: "Github", url: "https://github.com", group: "" },
 ];
 let editMode = false;
 let folderEditMode = false; // Bearbeiten-Modus für Ordner-Overlay
