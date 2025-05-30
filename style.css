@@ -1145,7 +1145,7 @@ h1 {
 @media (max-width: 900px) {
   .folder-title,
   .tile-inner .label {
-    font-size: 0.95em;
+    font-size: 0.85em;
   }
   .single-tile img,
   .tile-inner img {
@@ -1156,6 +1156,6 @@ h1 {
 @media (max-width: 600px) {
   .folder-title,
   .tile-inner .label {
-    font-size: 0.85em;
+    font-size: 0.75em;
   }
 }
