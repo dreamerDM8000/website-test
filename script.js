@@ -271,7 +271,7 @@ function renderSites() {
       tile.draggable = editMode;
       tile.onclick = (e) => {
         if (editMode) return;
-        window.open(site.url, "_blank");
+        window.location.href = site.url;
       };
       if (editMode) {
         tile.ondragstart = (e) => {
@@ -534,7 +534,7 @@ function renderSites() {
       });
       const folderIcon = document.createElement("span");
       folderIcon.className = "folder-icon";
-      folderIcon.textContent = "📁";
+      // folderIcon.textContent = "";
       const folderTitle = document.createElement("div");
       folderTitle.className = "folder-title";
       folderTitle.textContent = group;
@@ -565,7 +565,7 @@ function openFolderOverlay(group) {
   folderOverlayEditBtn.classList.remove("active");
   folderOverlayEditBtn.style.display = "inline-block";
   folderOverlay.classList.add("active");
-  folderOverlayTitle.innerHTML = `<span class="folder-emoji">📁</span>${group}`;
+  folderOverlayTitle.innerHTML = group;
   renderFolderOverlay(group);
 }
 function closeFolderOverlay() {
@@ -721,7 +721,7 @@ function renderFolderOverlay(group) {
 
     a.onclick = (e) => {
       if (folderEditMode) return;
-      window.open(site.url, "_blank");
+      window.location.href = site.url;
     };
     a.appendChild(icon);
     a.appendChild(label);
@@ -730,13 +730,7 @@ function renderFolderOverlay(group) {
 
   if (folderEditMode) {
     const dropZone = document.createElement("div");
-    dropZone.style.height = "36px";
-    dropZone.style.border = "2.5px dashed #2c85ff";
-    dropZone.style.borderRadius = "10px";
-    dropZone.style.display = "flex";
-    dropZone.style.alignItems = "center";
-    dropZone.style.justifyContent = "center";
-    dropZone.style.color = "#2c85ff";
+    dropZone.className = "folder-drop-zone";
     dropZone.textContent = "Hierher ziehen, um ans Ende zu legen";
     dropZone.ondragover = (e) => e.preventDefault();
     dropZone.ondrop = (e) => {
@@ -829,7 +823,9 @@ const searchQueryInput = document.getElementById("searchQuery");
 const searchengineDropdown = document.getElementById("searchengineDropdown");
 const searchengineList = document.getElementById("searchengineList");
 const searchengineIcon = document.getElementById("searchengineIcon");
-const currentSearchEngineBtn = document.getElementById("currentSearchEngineBtn");
+const currentSearchEngineBtn = document.getElementById(
+  "currentSearchEngineBtn"
+);
 
 let currentEngineIdx = 0;
 
@@ -839,7 +835,8 @@ function buildSearchEngineList() {
   searchEngines.forEach((engine, idx) => {
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "searchengine-item" + (idx === currentEngineIdx ? " selected" : "");
+    btn.className =
+      "searchengine-item" + (idx === currentEngineIdx ? " selected" : "");
     btn.innerHTML = `<img src="${engine.icon}" alt="${engine.name}"> ${engine.name}`;
     btn.onclick = () => {
       setCurrentSearchEngine(idx);
