@@ -868,7 +868,6 @@ searchengineDropdown.onblur = function () {
 setCurrentSearchEngine(0);
 
 // Suchformular absenden
-// Suchformular absenden
 searchForm.onsubmit = function (e) {
   e.preventDefault();
   const query = searchQueryInput.value.trim();
