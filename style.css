@@ -836,9 +836,8 @@ h1 {
   color: #2c85ff;
   filter: drop-shadow(0 2px 1px #0005);
 }
-/* --- ÄNDERUNG: Titel komplett anzeigen, kein ... und kein Abschneiden --- */
 .folder-title {
-  font-size: 1.07em;
+  font-size: 0.92em; /* kleiner auf Standard */
   font-weight: 600;
   margin-bottom: 2px;
   color: #fff;
@@ -847,9 +846,8 @@ h1 {
   white-space: normal;
   word-break: break-word;
 }
-/* Optional auch für kleine Labels in Ordner-Ansicht */
 .tile-inner .label {
-  font-size: 12px;
+  font-size: 0.83em; /* kleiner auf Standard */
   font-weight: 500;
   margin-bottom: 2px;
   margin-top: 2px;
@@ -865,7 +863,6 @@ h1 {
   flex-direction: column;
   gap: 4px;
 }
-
 .edit-tile-btn {
   background: #2c2c3c;
   border: none;
@@ -1062,7 +1059,7 @@ h1 {
   box-shadow: 0 2px 8px #0003;
 }
 .tile-inner .label {
-  font-size: 12px;
+  font-size: 0.83em;
   font-weight: 500;
   margin-bottom: 2px;
   margin-top: 2px;
@@ -1120,28 +1117,6 @@ h1 {
   height: 22px;
   display: block;
 }
-@media (max-width: 600px) {
-  .social-bar {
-    left: 6px;
-    bottom: 6px;
-    gap: 7px;
-  }
-  .social-bar a {
-    width: 26px;
-    height: 26px;
-    padding: 3px;
-  }
-  .social-bar svg {
-    width: 16px;
-    height: 16px;
-  }
-  .folder-view-outer {
-    min-width: 0;
-    width: 98vw;
-    padding: 10px 2vw 10px 2vw;
-  }
-}
-
 @media (max-width: 900px) {
   .folder-title,
   .tile-inner .label {
@@ -1156,6 +1131,16 @@ h1 {
 @media (max-width: 600px) {
   .folder-title,
   .tile-inner .label {
-    font-size: 0.75em;
+    font-size: 1em; /* größer auf Handy */
+  }
+  .single-tile img,
+  .tile-inner img {
+    width: 38px;
+    height: 38px;
+  }
+  .folder-view-outer {
+    min-width: 0;
+    width: 98vw;
+    padding: 10px 2vw 10px 2vw;
   }
 }
