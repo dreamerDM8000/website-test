@@ -797,6 +797,84 @@ globalEditBtn.onclick = function () {
   closeFolderOverlay();
   renderSites();
 };
+// ----- SEARCHBAR FUNKTIONALITÄT -----
 
+// Liste der Suchmaschinen
+const searchEngines = [
+  {
+    name: "Google",
+    url: "https://www.google.com/search?q=",
+    icon: "https://www.google.com/s2/favicons?sz=128&domain=google.com",
+  },
+  {
+    name: "DuckDuckGo",
+    url: "https://duckduckgo.com/?q=",
+    icon: "https://www.google.com/s2/favicons?sz=128&domain=duckduckgo.com",
+  },
+  {
+    name: "Bing",
+    url: "https://www.bing.com/search?q=",
+    icon: "https://www.google.com/s2/favicons?sz=128&domain=bing.com",
+  },
+  {
+    name: "YouTube",
+    url: "https://www.youtube.com/results?search_query=",
+    icon: "https://www.google.com/s2/favicons?sz=128&domain=youtube.com",
+  },
+];
+
+// DOM Elemente
+const searchForm = document.getElementById("searchForm");
+const searchQueryInput = document.getElementById("searchQuery");
+const searchengineDropdown = document.getElementById("searchengineDropdown");
+const searchengineList = document.getElementById("searchengineList");
+const searchengineIcon = document.getElementById("searchengineIcon");
+const currentSearchEngineBtn = document.getElementById("currentSearchEngineBtn");
+
+let currentEngineIdx = 0;
+
+// Suchmaschinen-Auswahl aufbauen
+function buildSearchEngineList() {
+  searchengineList.innerHTML = "";
+  searchEngines.forEach((engine, idx) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "searchengine-item" + (idx === currentEngineIdx ? " selected" : "");
+    btn.innerHTML = `<img src="${engine.icon}" alt="${engine.name}"> ${engine.name}`;
+    btn.onclick = () => {
+      setCurrentSearchEngine(idx);
+      searchengineList.classList.remove("open");
+      searchengineDropdown.blur();
+    };
+    searchengineList.appendChild(btn);
+  });
+}
+
+function setCurrentSearchEngine(idx) {
+  currentEngineIdx = idx;
+  searchengineIcon.src = searchEngines[idx].icon;
+  buildSearchEngineList();
+}
+
+// Dropdown öffnen/schließen (Klick & Tastatur)
+currentSearchEngineBtn.onclick = function (e) {
+  searchengineList.classList.toggle("open");
+};
+searchengineDropdown.onblur = function () {
+  searchengineList.classList.remove("open");
+};
+
+// Initial setzen
+setCurrentSearchEngine(0);
+
+// Suchformular absenden
+searchForm.onsubmit = function (e) {
+  e.preventDefault();
+  const query = searchQueryInput.value.trim();
+  if (!query) return;
+  const engine = searchEngines[currentEngineIdx];
+  // Die Form hat target="_blank", also wird im neuen Tab geöffnet
+  window.open(engine.url + encodeURIComponent(query), "_blank");
+};
 // Start
 renderSites();
