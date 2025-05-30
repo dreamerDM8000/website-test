@@ -554,3 +554,21 @@ h1 {
     padding: 10px 2vw 10px 2vw;
   }
 }
+
+@media (max-width: 900px) {
+  .folder-title,
+  .tile-inner .label {
+    font-size: 0.95em;
+  }
+  .single-tile img,
+  .tile-inner img {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media (max-width: 600px) {
+  .folder-title,
+  .tile-inner .label {
+    font-size: 0.85em;
+  }
+}
