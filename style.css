@@ -647,7 +647,7 @@ h1 {
   .folder-drop-zone {
     min-width: 90px;
     min-height: 90px;
-    font-size: 1em;
+    font-size: 0.8em;
     padding: 8px 2px 8px 2px;
   }
 
@@ -666,7 +666,7 @@ h1 {
   }
 
   .folder-title {
-    font-size: 0.97em;
+    font-size: 0.8em;
     font-weight: 600;
     margin-top: 0;
     margin-bottom: 0;
@@ -680,7 +680,7 @@ h1 {
   }
 
   .tile-inner .label {
-    font-size: 0.97em;
+    font-size: 0.8em;
     font-weight: 500;
     margin-top: 0;
     margin-bottom: 0;
@@ -693,6 +693,6 @@ h1 {
   .folder-drop-zone {
     font-size: 13px;
     border-radius: 10px;
-    margin-top: 6px;
+    margin-top: 10px;
   }
 }
