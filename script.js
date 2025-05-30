@@ -868,13 +868,14 @@ searchengineDropdown.onblur = function () {
 setCurrentSearchEngine(0);
 
 // Suchformular absenden
+// Suchformular absenden
 searchForm.onsubmit = function (e) {
   e.preventDefault();
   const query = searchQueryInput.value.trim();
   if (!query) return;
   const engine = searchEngines[currentEngineIdx];
-  // Die Form hat target="_blank", also wird im neuen Tab geöffnet
-  window.open(engine.url + encodeURIComponent(query), "_blank");
+  // Jetzt im gleichen Tab öffnen:
+  window.location.href = engine.url + encodeURIComponent(query);
 };
 // Start
 renderSites();
